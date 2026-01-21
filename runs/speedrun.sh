@@ -81,7 +81,7 @@ echo "Waiting for dataset download to complete..."
 wait $DATASET_DOWNLOAD_PID
 
 # Number of processes/GPUs to use
-NPROC_PER_NODE=4
+NPROC_PER_NODE=8
 
 # pretrain the d12 model with reduced data:param ratio for faster training
 torchrun --standalone --nproc_per_node=$NPROC_PER_NODE -m scripts.base_train -- --depth=12 --target-param-data-ratio=2 --total-batch-size=262144 --eval-every=500 --core-metric-every=-1 --sample-every=-1 --run=$WANDB_RUN
